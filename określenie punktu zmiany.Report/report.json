@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.47\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY23SU08\",\"version\":\"5.47\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY23SU08",
+            "path": "BaseThemes/CY23SU08.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "zmiana",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"973bfb4108187013010b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":364.0449438202247,\"y\":242.69662921348313,\"z\":0,\"width\":554.9662921348314,\"height\":236.22471910112358,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Table.Index)\"},{\"queryRef\":\"Sum(Table.Decision)\"},{\"queryRef\":\"Sum(Table.Human Value to display.1)\"},{\"queryRef\":\"Sum(Table.Model Value to display)\"},{\"queryRef\":\"Table.positition\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Table\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Decision\"},\"Name\":\"Sum(Table.Decision)\",\"NativeReferenceName\":\"Decision\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Human Value to display.1\"},\"Name\":\"Sum(Table.Human Value to display.1)\",\"NativeReferenceName\":\"Human Value to display.1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Model Value to display\"},\"Name\":\"Sum(Table.Model Value to display)\",\"NativeReferenceName\":\"Model Value to display\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Index\"}},\"Function\":0},\"Name\":\"Sum(Table.Index)\",\"NativeReferenceName\":\"Sum of Index\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"positition\"},\"Name\":\"Table.positition\",\"NativeReferenceName\":\"positition\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Index\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 236.22,
+          "width": 554.97,
+          "x": 364.04,
+          "y": 242.70,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

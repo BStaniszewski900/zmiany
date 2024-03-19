@@ -1,0 +1,77 @@
+table Table
+	lineageTag: 9221f977-6662-4937-9407-461a2bbf7569
+
+	measure positition = ```
+			
+			VAR point_of_change =
+			    CALCULATE (
+			        MAXX (
+			            CALCULATETABLE ( 'Table', 'Table'[Decision] = 0 ),
+			            --tutaj ograniczyć odpowiednio do LAGA i tego m1,m2,m3... 
+			            -- tutaj byśmy brali kolumnę obliczeniową  uzyskaną z OR 
+			            'Table'[Index] -- tutaj CHYBA byśmy brali date??? 
+			        ),
+			        ALL ( 'Table' )
+			    )
+			RETURN
+			    IF (
+			        SELECTEDVALUE ( 'Table'[Index] ) <= point_of_change,
+			        SUM ( 'Table'[Human Value to display.1] ),
+			        SUM ( 'Table'[Model Value to display] )
+			    )
+			
+			
+			```
+		formatString: 0
+		lineageTag: 219469dc-abfe-4675-b71d-a0c36c3bbdf5
+
+	column 'Model Value to display'
+		dataType: int64
+		formatString: 0
+		lineageTag: b003dd0c-0efe-43d5-8de2-6adc00e433f4
+		summarizeBy: sum
+		sourceColumn: Model Value to display
+
+		annotation SummarizationSetBy = Automatic
+
+	column Decision
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a1ff318-46c6-4fc0-8680-3013fe53b2f5
+		summarizeBy: sum
+		sourceColumn: Decision
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Human Value to display.1'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d3443c9-b871-4bf5-b7cb-3726bdc40f62
+		summarizeBy: sum
+		sourceColumn: Human Value to display.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 05d689d2-80b7-42c8-b66f-e27ee5c2c33b
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Table = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUTIAYiOlWJ1oJVMgCyRiCeYZGkC5hhYQPlwxhG9kCJU3NoTwYdqNzZViYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Model Value to display" = _t, Decision = _t, #"Human Value to display.1" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Model Value to display", Int64.Type}, {"Decision", Int64.Type}, {"Human Value to display.1", Int64.Type}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
